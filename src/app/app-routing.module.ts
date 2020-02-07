@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
+// import * as foreign from 'foreign_module';
+// import { ForeignModule } from 'foreign_module';
+// console.log(foreign);
+
 const routes: Routes = [
   {
     path: '',
@@ -17,6 +21,10 @@ const routes: Routes = [
   },
   {
     path: 'separated-module',
+    loadChildren: () => import('./separated-module/separated-module.module').then( m => m.SeparatedModulePageModule)
+  },
+  {
+    path: 'foreign-module',
     loadChildren: () => import('./separated-module/separated-module.module').then( m => m.SeparatedModulePageModule)
   }
 ];
